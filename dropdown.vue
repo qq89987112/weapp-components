@@ -80,7 +80,6 @@
       .toggle-content{
         transition: 0.3s height cubic-bezier(0.12, 0.4, 0.29, 1.46);
         overflow:hidden;
-        background-color: #efefef;
       }
     }
 </style>
