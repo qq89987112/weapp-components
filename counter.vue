@@ -1,24 +1,26 @@
 <style lang="scss" scoped>
     .counter-component{
-        border: 1rpx solid #eee;
+        border: 1rpx solid #bebebe;
         border-radius: 4rpx;
         display: flex;
         align-items: center;
         align-content: center;
-        line-height: 1.5em;
+        line-height: 30rpx;
 
         .sub,.add{
-           width: 1.5em;
-           height: 1.5em;
+           width: 38rpx;
+           height: 30rpx;
            text-align: center;
            display: inline-block;
         }
         .value{
-            min-width: 1.5em;
-            height: 1.5em;
+            font-size: 20rpx;
+            min-width: 43rpx;
+            color: #51576F;
+            height: 30rpx;
             border: 1rpx solid;
             text-align: center;
-            border-color: transparent #eee transparent #eee;
+            border-color: transparent #bebebe transparent #bebebe;
         }
     }
 </style>
