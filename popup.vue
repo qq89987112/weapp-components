@@ -1,5 +1,5 @@
 <template>
-  <view class="custom-popup {{popup&&'active'}} {{type}}">
+  <view class="custom-popup {{idle&&'idle'}} {{popup&&'active'}} {{type}}">
     <view class="custom-popup-mask"  bindtap="hide"></view>
     <view class="custom-popup-content">
       <slot></slot>
@@ -17,12 +17,28 @@ Component({
     properties:{
       popup:{
         type:Boolean,
-        default:false
+        default:false,
+         observer(newVal, oldVal, changedPath) {
+           if(newVal){
+             this.setData({
+               idle:false
+             })
+           }else{
+             setTimeout(()=>{
+                 this.setData({
+                    idle:true
+                  })
+             },300)
+           }
+        }
       },
       type:{
         type:String,
         default:""
       }
+    },
+    data:{
+      idle:true
     },
     methods:{
       hide(){
@@ -46,7 +62,13 @@ Component({
   .custom-popup {
     /*这个方法失效*/
     /*box-shadow: 0 0 1000rpx rgba(0,0,0,0.5);*/
-    z-index: 11;
+
+    // 添加这个是为了动画播放完再加上这个类，如果直接加在.custom-popup下会导致刚播放就-11
+    &.idle{
+      z-index: -11;
+      position: relative;
+    }
+    
 
     &.right{
       .custom-popup-content{
@@ -59,6 +81,7 @@ Component({
     }
 
     &.active{
+      z-index: 11;
       .custom-popup-content{
         transform: translate3d(0,0,0);
       }
