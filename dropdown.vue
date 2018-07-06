@@ -46,7 +46,6 @@
   })
 </script>
 <style lang="scss">
-  @import "/assets/css/iconfont.wxss";
   .cell-toggle-box{
       .cell + .cell{
         border-top: 1rpx solid #efefef;
