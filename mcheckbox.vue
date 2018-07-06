@@ -20,7 +20,7 @@
 <template>
   <view bindtap="onCheck" class="checkbox-component {{type}}">
     <!-- <view class="iconfont {{checked ? 'icon-check':'icon-unchecked'}} {{slot&&'slot'}}"></view> -->
-    <image src="{{checked ? '/assets/image/选中.png' :'/assets/image/还未进行订单状态.png'}}"></image>
+    <image src="{{checked ? checkedImage :unCheckedImage}}"></image>
     <slot></slot>
   </view>
 </template>
@@ -35,11 +35,23 @@
         properties:{
             checked:{
                 type:Boolean,
-                default:false
+                value:false
             },
             type:{
                 type:String,
-                default:""
+                value:"" //slot
+            },
+            checkedImage:{
+                type:String,
+                value:'/assets/image/选中.png'
+            },
+            unCheckedImage:{
+                type:String,
+                value:'/assets/image/还未进行订单状态.png'
+            },
+            disable:{
+                type:Boolean,
+                value:false
             }
         },
         data:{
