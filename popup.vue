@@ -103,7 +103,7 @@ Component({
     }
 
     .custom-popup-content{
-      padding: 0 20rpx;
+      //padding: 0 20rpx;
       background-color: #fff;
       transform: translate3d(0,100%,0);
       transition:transform 0.3s ease;
